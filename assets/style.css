@@ -1,0 +1,963 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Apply modern typography and box sizing globally within components */
+.s22-slider,
+.s22-ig-account-info-bar,
+.ifs-lightbox {
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.s22-ig-name,
+.s22-ig-follow-btn,
+.ifs-lightbox-caption {
+    font-family: 'Outfit', sans-serif !important;
+}
+
+/* ==========================================================================
+   1. Instagram Account Info Bar (Header Profile Card)
+   ========================================================================== */
+
+.s22-ig-account-info-bar {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto 32px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px 32px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(240, 240, 240, 0.8);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.s22-ig-account-info-bar:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    border-color: rgba(225, 225, 225, 0.9);
+    transform: translateY(-2px);
+}
+
+.s22-ig-account-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Profile Picture with Rounded Square iOS style gradient border */
+.s22-ig-profile-pic {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px !important;
+    object-fit: cover;
+    padding: 3px;
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border: none;
+    box-shadow: 0 8px 20px rgba(220, 35, 102, 0.15);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.s22-ig-account-left:hover .s22-ig-profile-pic {
+    transform: scale(1.06) rotate(3deg);
+}
+
+.s22-ig-account-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.s22-ig-name {
+    font-weight: 700;
+    font-size: 1.25em;
+    color: #0f1419;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.s22-ig-username {
+    color: #536471;
+    font-size: 0.85em;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 2px;
+    width: fit-content;
+}
+
+/* Add custom SVG verified checkmark next to username inside the badge */
+.s22-ig-username::after {
+    content: "";
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-left: 6px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230095f6'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+.s22-ig-website a {
+    color: #4f46e5;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+.s22-ig-website a:hover {
+    color: #312e81;
+    text-decoration: underline;
+}
+
+.s22-ig-account-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Modern Pill Follow Button (Sleek Dark Theme transitioning to Brand Gradient) */
+.s22-ig-follow-btn {
+    padding: 12px 28px !important;
+    background: #0f1419 !important;
+    color: #ffffff !important;
+    border-radius: 100px !important;
+    font-weight: 700 !important;
+    font-size: 0.85em !important;
+    letter-spacing: 0.03em !important;
+    box-shadow: 0 4px 12px rgba(15, 20, 25, 0.15) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.s22-ig-follow-btn:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35) !important;
+    transform: translateY(-2px) scale(1.03) !important;
+    border-color: transparent !important;
+    color: #ffffff !important;
+}
+
+.s22-ig-follow-btn:active {
+    transform: translateY(0) scale(0.98) !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ==========================================================================
+   2. Frontend Swiper Slider Base
+   ========================================================================== */
+.s22-slider {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    /* To allow slide cards shadow expansion */
+    margin: 0 auto;
+}
+
+.s22-slider .swiper {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0 35px 0 !important;
+    /* Extra bottom padding for dots */
+}
+
+/* Slider container constraints */
+.swiper-horizontal {
+    max-width: 1350px;
+}
+
+.s22-slider .swiper-wrapper {
+    overflow: visible !important;
+}
+
+.s22-slider .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    height: 400px;
+    /* Modern uniform height */
+    overflow: visible !important;
+}
+
+/* Slide Cards styling */
+.s22-slider .swiper-slide a {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    background: #fcfcfd;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    isolation: isolate;
+}
+
+.instagram-gallery .gallery-item a {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    background: #fcfcfd;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    isolation: isolate;
+    width: 100%;
+    height: auto;
+}
+
+.s22-slider .swiper-slide a:hover,
+.instagram-gallery .gallery-item a:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+.s22-slider .swiper-slide .ifs-lightbox-link > img,
+.s22-slider .swiper-slide .ifs-lightbox-link > video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block;
+    border-radius: inherit;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.instagram-gallery .gallery-item .ifs-lightbox-link > img,
+.instagram-gallery .gallery-item .ifs-lightbox-link > video {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block;
+    border-radius: inherit;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative !important;
+}
+
+.s22-slider .swiper-slide a.ifs-lightbox-link:hover > img,
+.s22-slider .swiper-slide a.ifs-lightbox-link:hover > video,
+.instagram-gallery .gallery-item a.ifs-lightbox-link:hover > img,
+.instagram-gallery .gallery-item a.ifs-lightbox-link:hover > video {
+    transform: scale(1.06);
+}
+
+/* ==========================================================================
+   3. Caption Hover Overlays
+   ========================================================================== */
+.s22-slider .ifs-hover-overlay,
+.instagram-gallery .ifs-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.75) 100%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: white !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 5;
+    padding: 24px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.s22-slider .swiper-slide a:hover .ifs-hover-overlay,
+.instagram-gallery .gallery-item a:hover .ifs-hover-overlay {
+    opacity: 1;
+}
+
+.s22-slider .ifs-hover-caption-text,
+.instagram-gallery .ifs-hover-caption-text {
+    font-size: 0.9em;
+    font-weight: 500;
+    line-height: 1.5;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    color: #ffffff !important;
+    transform: translateY(12px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: 8px;
+    width: 100%;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.s22-slider .ifs-hover-overlay::after,
+.instagram-gallery .ifs-hover-overlay::after {
+    content: "View Post";
+    display: inline-block;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 8px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+    backdrop-filter: blur(4px);
+}
+
+.s22-slider .swiper-slide a:hover .ifs-hover-caption-text,
+.instagram-gallery .gallery-item a:hover .ifs-hover-caption-text {
+    transform: translateY(0);
+}
+
+.s22-slider .swiper-slide a:hover .ifs-hover-overlay::after,
+.instagram-gallery .gallery-item a:hover .ifs-hover-overlay::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   4. Slider Navigation & Pagination Overrides
+   ========================================================================== */
+.s22-slider .swiper-button-next,
+.s22-slider .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    color: #1a1a1a !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    opacity: 0;
+    /* Hidden by default, fades in on hover */
+    margin: 0 !important;
+    z-index: 10 !important;
+}
+
+.s22-slider:hover .swiper-button-next,
+.s22-slider:hover .swiper-button-prev {
+    opacity: 1;
+}
+
+.s22-slider .swiper-button-prev {
+    left: 16px !important;
+}
+
+.s22-slider .swiper-button-next {
+    right: 16px !important;
+}
+
+.s22-slider .swiper-button-next:hover,
+.s22-slider .swiper-button-prev:hover {
+    background: #ffffff !important;
+    color: #4f46e5 !important;
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.25) !important;
+    transform: translateY(-50%) scale(1.08) !important;
+}
+
+.s22-slider .swiper-button-next:active,
+.s22-slider .swiper-button-prev:active {
+    transform: translateY(-50%) scale(0.95) !important;
+}
+
+.s22-slider .swiper-button-next:after,
+.s22-slider .swiper-button-prev:after,
+.s22-slider .swiper-button-next:hover:after,
+.s22-slider .swiper-button-prev:hover:after,
+.s22-slider .swiper-button-next:active:after,
+.s22-slider .swiper-button-prev:active:after {
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    transition: none !important;
+}
+
+/* Handle SVG icon scaling inside navigation buttons */
+.s22-slider .swiper-button-next svg,
+.s22-slider .swiper-button-prev svg,
+.s22-slider .swiper-button-next:hover svg,
+.s22-slider .swiper-button-prev:hover svg,
+.s22-slider .swiper-button-next:active svg,
+.s22-slider .swiper-button-prev:active svg {
+    width: 14px !important;
+    height: 14px !important;
+    max-width: 14px !important;
+    max-height: 14px !important;
+    transition: none !important;
+}
+
+/* Bullet Pagination */
+.s22-slider .swiper-pagination {
+    bottom: -6px !important;
+    position: relative !important;
+    margin-top: 24px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.s22-slider .swiper-pagination-bullet {
+    width: 8px !important;
+    height: 8px !important;
+    background: rgba(0, 0, 0, 0.15) !important;
+    opacity: 1 !important;
+    border-radius: 50% !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin: 0 !important;
+}
+
+/* Expanding Pill Transition Style */
+.s22-slider .swiper-pagination-bullet-active {
+    width: 24px !important;
+    height: 8px !important;
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3) !important;
+}
+
+/* ==========================================================================
+   5. Gallery Layout Grid
+   ========================================================================== */
+.instagram-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+    padding: 0 8px;
+    max-width: 1350px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.instagram-gallery .gallery-item {
+    aspect-ratio: auto;
+    height: auto;
+    position: relative;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.instagram-gallery .load-more-button {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 36px;
+    padding: 14px 40px !important;
+    background: #ffffff !important;
+    color: #0f1419 !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border-radius: 100px !important;
+    font-size: 0.9em !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    outline: none !important;
+}
+
+.instagram-gallery .load-more-button:hover {
+    background: #0f1419 !important;
+    color: #ffffff !important;
+    border-color: #0f1419 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+}
+
+.instagram-gallery .load-more-button:active {
+    transform: translateY(0) scale(0.98) !important;
+}
+
+/* ==========================================================================
+   6. Lightbox Overlay & Carousels
+   ========================================================================== */
+.ifs-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.8) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    align-items: center;
+    justify-content: center;
+}
+
+.ifs-lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.ifs-lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ifs-lightbox-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    height: 520px;
+    min-width: 0;
+}
+
+.ifs-lightbox-prev-thumb,
+.ifs-lightbox-next-thumb {
+    width: 140px;
+    height: 220px;
+    opacity: 0.4;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    margin: 0 24px;
+    z-index: 1;
+    filter: blur(1px) grayscale(0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ifs-lightbox-prev-thumb:hover,
+.ifs-lightbox-next-thumb:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+    filter: blur(0) grayscale(0);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ifs-lightbox-prev-thumb img,
+.ifs-lightbox-next-thumb img,
+.ifs-lightbox-prev-thumb video,
+.ifs-lightbox-next-thumb video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.ifs-lightbox-main {
+    width: 520px;
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    z-index: 2;
+    margin: 0 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: #000;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ifs-lightbox-main img,
+.ifs-lightbox-main video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ifs-lightbox-main.fade {
+    opacity: 0;
+    transform: scale(0.96);
+}
+
+.ifs-lightbox-main.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.ifs-lightbox-caption {
+    color: rgba(255, 255, 255, 0.95);
+    margin-top: 10px;
+    font-size: 0.95em;
+    text-align: center;
+    max-width: 600px;
+    word-break: break-word;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    line-height: 1.5;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ifs-lightbox-close {
+    position: absolute;
+    top: -48px;
+    right: 0px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+    line-height: 0;
+}
+
+.ifs-lightbox-close:hover {
+    background: rgba(255, 82, 82, 0.9);
+    border-color: rgba(255, 82, 82, 1);
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   7. General Helper Styles & Placeholders
+   ========================================================================== */
+.loading-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #888;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   8. WordPress Admin Dashboard Panel Specific Styling
+   ========================================================================== */
+.s22-slider-form .form-table th {
+    width: 200px;
+}
+
+.s22-slider-form .form-table td {
+    padding: 15px 10px;
+}
+
+.s22-slider-form .form-table input[type="text"],
+.s22-slider-form .form-table input[type="number"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+.wrap .card {
+    max-width: 800px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.wrap .card h2 {
+    margin-top: 0;
+}
+
+.wp-list-table .column-shortcode {
+    width: 200px;
+}
+
+.wp-list-table .column-actions {
+    width: 150px;
+}
+
+.wp-list-table .button {
+    margin-right: 5px;
+}
+
+.s22-dashboard-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.s22-sliders-fullwidth {
+    width: 100%;
+    max-width: 100%;
+}
+
+.s22-sliders-fullwidth table.wp-list-table {
+    width: 100%;
+}
+
+/* ==========================================================================
+   9. Responsive Adaptive Breakpoints
+   ========================================================================== */
+@media screen and (max-width: 1024px) {
+    .s22-slider .swiper-slide {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .ifs-lightbox-prev-thumb,
+    .ifs-lightbox-next-thumb {
+        display: none !important;
+    }
+    .ifs-lightbox-carousel {
+        height: auto;
+    }
+    .ifs-lightbox-main {
+        width: 80vw;
+        height: 80vw;
+        max-width: 460px;
+        max-height: 460px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 782px) {
+    .s22-ig-account-info-bar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .s22-ig-account-right {
+        width: 100%;
+    }
+
+    .s22-ig-follow-btn {
+        width: 100%;
+    }
+
+    .s22-slider-form .form-table th {
+        width: auto;
+    }
+
+    .s22-slider-form .form-table input[type="text"],
+    .s22-slider-form .form-table input[type="number"] {
+        max-width: 100%;
+    }
+
+    .wp-list-table .column-shortcode,
+    .wp-list-table .column-actions {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .s22-slider .swiper-slide {
+        height: 300px;
+    }
+
+    .instagram-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 16px;
+    }
+
+    .s22-slider .ifs-hover-overlay,
+    .instagram-gallery .ifs-hover-overlay {
+        padding: 16px !important;
+    }
+
+    .s22-slider .ifs-hover-caption-text,
+    .instagram-gallery .ifs-hover-caption-text {
+        font-size: 0.8em !important;
+        -webkit-line-clamp: 2 !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ifs-lightbox-main {
+        width: 85vw;
+        height: 85vw;
+        max-width: 300px;
+        max-height: 300px;
+    }
+    .ifs-lightbox-caption {
+        padding: 8px 16px;
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .s22-slider .swiper-slide {
+        height: 250px;
+    }
+
+    .instagram-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+    }
+
+    .s22-slider .ifs-hover-overlay,
+    .instagram-gallery .ifs-hover-overlay {
+        padding: 10px !important;
+    }
+
+    .s22-slider .ifs-hover-caption-text,
+    .instagram-gallery .ifs-hover-caption-text {
+        font-size: 0.72em !important;
+        -webkit-line-clamp: 2 !important;
+        margin-bottom: 4px !important;
+    }
+
+    .s22-slider .ifs-hover-overlay::after,
+    .instagram-gallery .ifs-hover-overlay::after {
+        padding: 4px 10px !important;
+        margin-top: 4px !important;
+    }
+}
+
+.ifs-hover-overlay img.emoji,
+.ifs-hover-overlay img,
+.ifs-hover-caption-text .emoji,
+.ifs-hover-caption-text img {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 30px !important;
+    height: 30px !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    object-fit: contain !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    transform: none !important;
+    transition: none !important;
+    margin: 0 4px !important;
+    background: transparent !important;
+}
+/* Staggered Fade In Up Entrance Animation for Load More Items */
+@keyframes ifsFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ifs-fade-in {
+    opacity: 0;
+    animation: ifsFadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+/* Style Version Update Marker: 1.2.4 */
+
+/* Lightbox Mobile Navigation Arrows */
+.ifs-lightbox-arrow {
+    display: none !important; /* Hidden on desktop */
+}
+
+@media screen and (max-width: 1024px) {
+    .ifs-lightbox-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: rgba(20, 20, 20, 0.6) !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        color: #ffffff !important;
+        border-radius: 50% !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 1000 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        outline: none !important;
+        padding: 0 !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .ifs-lightbox-arrow:hover {
+        background: rgba(20, 20, 20, 0.8) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+        transform: translateY(-50%) scale(1.05) !important;
+    }
+
+    .ifs-lightbox-arrow:active {
+        transform: translateY(-50%) scale(0.95) !important;
+    }
+
+    .ifs-lightbox-arrow svg {
+        width: 22px !important;
+        height: 22px !important;
+        stroke: #ffffff !important;
+        stroke-width: 2.5px;
+        fill: none;
+    }
+
+    .ifs-lightbox-arrow-prev {
+        left: 12px;
+    }
+
+    .ifs-lightbox-arrow-next {
+        right: 12px;
+    }
+}
